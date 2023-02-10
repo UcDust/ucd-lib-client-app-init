@@ -1,0 +1,27 @@
+{
+  "@context" : {
+    "schema" : "http://schema.org/",
+    "ucdlib" : "http://digital.library.ucdavis.edu/schema/"
+  },
+  "@graph" : [{
+    "@id" : "",
+    "@type" : [ "schema:Collection" ],
+    "ucdlib:featured-image" : [{ "@id" : "info:fedora/item/ark:/87287/d7m949/media/images/d7m949-001.jpg" }],
+    "ucdlib:application-config" : [{ "@id" : "sherry-lehmann/config.json" }],
+    "ucdlib:watercolor" : "gold", 
+    "schema:image" : [{ "@id" : "info:fedora/item/ark:/87287/d7m949/media/images/d7m949-001.jpg" }]
+  },
+  {
+    "@id" : "#featured-items",
+    "schema:url" : [{ 
+      "@id" : "/item/ark:/87287/d7dw8t",
+      "schema:image" : [{ "@id" : "sherry-lehmann/valLun.jpg" }],
+      "schema:description" : "From 1973: Wine List Proudly P..."
+    }, 
+    { 
+      "@id" : "/item/ark:/87287/d7gd3q",
+      "schema:image" : [{ "@id" : "info:fedora/item/ark:/87287/d7w94s/media/images/d7w94s-001.jpg" }],
+      "schema:description" : "From 1974: Summer-Fall Sale!"
+    }]
+  }]
+}
