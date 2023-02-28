@@ -1,0 +1,132 @@
+* Application Configuration
+
+  There are three levels of configuration, at the application level, at the
+  collection level and at the item level.
+
+  We should be able to create a configuration that is directly readable for the
+  client application, easy to install into elastic search.
+
+  Since the metadata that's added to the system is in linked data, the best
+  method for doing this is to access the metadata via a compacting
+  transformation service.
+
+
+** Prefix
+   We should be able to use the same prefix for all our queries.
+
+   #+name: context
+   #+begin_src json
+     "@context" : {
+       "@vocab":"http://schema.org/",
+       "@base":"info:fedora/fcrepo/rest/collection",
+       "fedora": "http://fedora.info/definitions/v4/repository#",
+       "ldp":"www.w3.org/ns/ldp#",
+       "schema" : "http://schema.org/",
+       "ucdlib" : "http://digital.library.ucdavis.edu/schema/",
+       "xsd" :"http://www.w3.org/2001/XMLSchema#",
+       "collection" :{
+         "@type":"@id",
+         "@id":"ucdlib:collection"
+       },
+       "watercolors":{
+         "@type":"@id",
+         "@id":"ucdlib:watercolors"
+       },
+       "foreground":{
+         "@type":"xsd:text",
+         "@id":"ucdlib:forground"
+       },
+       "background":{
+         "@type":"xsd:text",
+         "@id":"ucdlib:background"
+       },
+       "ldp:membershipResource":{"@type":"@id"},
+       "ldp:hasMemberRelation":{"@type":"@id"}
+     }
+   #+end_src
+
+** Application Configuration
+
+   The application configuration includes things such as the collections that
+   are currently being spotlighted.
+
+   #+name: application
+   #+begin_src json :noweb yes :tangle application.jsonld.json
+     {
+         <<context>>,
+         "@id" : "",
+         "name":"UC Davis Digital Collection",
+           "watercolors":[
+               {
+               "@id":"#gold",
+               "css":"",
+               "foreground":"0xaaaaa",
+               "background":"0xbbbbb"
+           }
+           ],
+         "thumbnailUrl" : "headline.jpg"
+     }
+   #+end_src
+
+** Collection Management
+
+   The collection configuration includes the ink themes used, and potentially
+   specific new images for the collections to be used on the site itself.  We
+   want to be able to update the collections independantly, so the collections
+   will be added as seperate containers using a direct container.  This can be
+   done with fin import without specifing the link headers.
+
+   We first need to show that items in the collection container are collections
+   for the application. We do this via a direct container.
+
+      #+name: collection
+   #+begin_src json :noweb yes :tangle application/collection.jsonld.json
+                {
+                    <<context>>,
+                      "@id":"",
+                    "@type":["ldp:DirectContainer",
+                             "fedora:ArchivalGroup"
+                            ],
+                    "ldp:membershipResource":"..",
+                    "ldp:hasMemberRelation":"collection"
+                }
+   #+end_src
+
+   And then for each collection, we have their configuration.  These can be
+   added and subtracted from the collection directory.
+
+   #+name: sherry-lehmann
+   #+begin_src json :noweb yes :tangle application/collection/sherry-lehmann.jsonld.json
+     {
+         <<context>>,
+         "@id" : "/collection/sherry-lehmann",
+         "watercolor" : "/application#gold",
+         "name": "Sherry Lehmann Collection",
+         "thumbnailUrl" : "thumbnail.jpg",
+         "exampleOfWork":
+         [
+             {
+             "@id" : "/item/ark:/87287/d7dw8t",
+             "position":1,
+             "image" : "/item/ark:/87287/d7dw8t/image",
+             "description" : "From 1973: Wine List Proudly P..." },
+             {
+                 "@id" : "/item/ark:/87287/d7gd3q",
+                 "position":2
+             }
+         ]
+     }
+   #+end_src
+
+** Item configuration
+
+   There are some cases where we want to modify the behavior of a single
+   item. Items are stored in the ~application/item~ and associated w/ the
+   application, again via the
+
+** Framing Service
+
+   In order to make sure we get the proper data in JSON form, we need to make
+   sure that we are framing the data.
+
+   #+name: frame

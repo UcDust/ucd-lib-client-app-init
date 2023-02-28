@@ -26,15 +26,20 @@
       "ldp:membershipResource":{"@type":"@id"},
       "ldp:hasMemberRelation":{"@type":"@id"}
     },
-    "@id" : "",
-    "name":"UC Davis Digital Collection",
-      "watercolors":[
-          {
-          "@id":"#gold",
-          "css":"",
-          "foreground":"0xaaaaa",
-          "background":"0xbbbbb"
-      }
-      ],
-    "thumbnailUrl" : "headline.jpg"
+    "@id" : "/collection/sherry-lehmann",
+    "watercolor" : "/application#gold",
+    "name": "Sherry Lehmann Collection",
+    "thumbnailUrl" : "thumbnail.jpg",
+    "exampleOfWork":
+    [
+        {
+        "@id" : "/item/ark:/87287/d7dw8t",
+        "position":1,
+        "image" : "/item/ark:/87287/d7dw8t/image",
+        "description" : "From 1973: Wine List Proudly P..." },
+        {
+            "@id" : "/item/ark:/87287/d7gd3q",
+            "position":2
+        }
+    ]
 }
