@@ -26,15 +26,10 @@
       "ldp:membershipResource":{"@type":"@id"},
       "ldp:hasMemberRelation":{"@type":"@id"}
     },
-    "@id" : "",
-    "name":"UC Davis Digital Collection",
-      "watercolors":[
-          {
-          "@id":"#gold",
-          "css":"",
-          "foreground":"0xaaaaa",
-          "background":"0xbbbbb"
-      }
-      ],
-    "thumbnailUrl" : "headline.jpg"
+      "@id":"",
+    "@type":["ldp:DirectContainer",
+             "fedora:ArchivalGroup"
+            ],
+    "ldp:membershipResource":"..",
+    "ldp:hasMemberRelation":"collection"
 }
