@@ -1,35 +1,10 @@
 {
-    "@context" : {
-      "@vocab":"http://schema.org/",
-      "@base":"info:fedora/fcrepo/rest/collection",
-      "fedora": "http://fedora.info/definitions/v4/repository#",
-      "ldp":"www.w3.org/ns/ldp#",
-      "schema" : "http://schema.org/",
-      "ucdlib" : "http://digital.library.ucdavis.edu/schema/",
-      "xsd" :"http://www.w3.org/2001/XMLSchema#",
-      "collection" :{
-        "@type":"@id",
-        "@id":"ucdlib:collection"
-      },
-      "watercolors":{
-        "@type":"@id",
-        "@id":"ucdlib:watercolors"
-      },
-      "foreground":{
-        "@type":"xsd:text",
-        "@id":"ucdlib:forground"
-      },
-      "background":{
-        "@type":"xsd:text",
-        "@id":"ucdlib:background"
-      },
-      "ldp:membershipResource":{"@type":"@id"},
-      "ldp:hasMemberRelation":{"@type":"@id"}
-    },
-      "@id":"",
-    "@type":["ldp:DirectContainer",
-             "fedora:ArchivalGroup"
-            ],
-    "ldp:membershipResource":"..",
-    "ldp:hasMemberRelation":"collection"
+  "@context" : {
+    "@vocab" : "http://schema.org/",
+    "@base" : "info:fedora/application/collection",
+    "ldp" : "www.w3.org/ns/ldp#"
+  },
+  "@id" : "",
+  "@type": [ "ldp:DirectContainer" ],
+  "name" : "Root of collection containers"
 }
