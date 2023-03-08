@@ -1,7 +1,7 @@
 {
   "@context" : {
     "@vocab" : "http://schema.org/",
-    "@base" : "info:fedora/application",
+    "@base" : "info:fedora/application/ucd-lib-client/collection",
     "ldp" : "http://www.w3.org/ns/ldp#",
     "ucdlib" : "http://digital.library.ucdavis.edu/schema/",
     "ldp:hasMemberRelation" : { "@type" : "@id" },
@@ -9,7 +9,7 @@
   },
   "@id" : "",
   "@type": [ "http://www.w3.org/ns/ldp#DirectContainer" ],
-  "name" : "Root of application containers",
-  "ldp:hasMemberRelation" : "ucdlib:hasApplication",
-  "ldp:membershipResource" : "application"
+  "name" : "Root of collection containers",
+  "ldp:hasMemberRelation" : "ucdlib:hasCollection",
+  "ldp:membershipResource" : "collection"
 }
